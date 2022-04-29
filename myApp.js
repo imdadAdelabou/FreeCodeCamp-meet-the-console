@@ -5,7 +5,7 @@ var app = express();
 
 console.log("Hello World");
 app.get('/', () => {
-    return res.sand("Hello Express");
+    return res.send("Hello Express");
 });
 
 

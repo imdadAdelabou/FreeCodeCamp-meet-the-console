@@ -9,7 +9,10 @@ app.get('/', (req, res) => {
     // res.send("Hello Express");
     return res.sendFile(__dirname + "/views/index.html");
 });
-// app.listen(3000);
+app.get("/json", (req, res) => {
+        return res.json({ "message": "Hello json" });
+    })
+    // app.listen(3000);
 
 
 

@@ -23,6 +23,12 @@ app.get("/json", (req, res) => {
     }
     return res.json({ "message": result });
 });
+app.get("/now", (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+}, (req, res, next) => {
+    return res.json({ "time": req.time });
+})
 app.listen(3000);
 
 

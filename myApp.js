@@ -5,6 +5,10 @@ var app = express();
 
 
 console.log("Hello World");
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path} -${req.ip}`);
+    next();
+});
 app.use("/public", express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     // res.send("Hello Express");
@@ -20,7 +24,7 @@ app.get("/json", (req, res) => {
     }
     return res.json({ "message": result });
 });
-// app.listen(3000);
+app.listen(3000);
 
 
 

@@ -36,7 +36,7 @@ app.get("/:word/echo", (req, res, next) => {
 });
 app.get("/name", (req, res, next) => {
 
-    return res.json({ "name": `${req.query.firstname} ${req.query.lastname}` });
+    return res.json({ "name": `${req.query.first} ${req.query.last}` });
 });
 app.listen(3000);
 

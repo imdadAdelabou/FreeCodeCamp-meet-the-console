@@ -28,7 +28,12 @@ app.get("/now", (req, res, next) => {
     next();
 }, (req, res, next) => {
     return res.json({ "time": req.time });
-})
+});
+app.get("/:word/echo", (req, res, next) => {
+    let word = req.params.word;
+
+    return res.json({ "echo": word });
+});
 app.listen(3000);
 
 

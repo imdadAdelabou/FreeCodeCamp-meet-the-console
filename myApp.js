@@ -35,7 +35,7 @@ app.get("/:word/echo", (req, res, next) => {
 
     return res.json({ "echo": word });
 });
-app.route("/name").get("/name", (req, res, next) => {
+app.route("/name").get((req, res, next) => {
 
     return res.json({ "name": `${req.query.first} ${req.query.last}` });
 }).post((req, res, next) => {

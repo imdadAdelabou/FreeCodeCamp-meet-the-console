@@ -4,12 +4,11 @@ const bodyParser = require("body-parser");
 const res = require('express/lib/response');
 var app = express();
 
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.path} - ${req.ip}`);
     next();
 });
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/public", express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     // res.send("Hello Express");
@@ -36,11 +35,13 @@ app.get("/:word/echo", (req, res, next) => {
 
     return res.json({ "echo": word });
 });
-app.get("/name", (req, res, next) => {
+app.route("/name").get("/name", (req, res, next) => {
 
     return res.json({ "name": `${req.query.first} ${req.query.last}` });
+}).post((req, res, next) => {
+    return res.json({ "name": `${req.body.first} ${req.body.last}` });
 });
-app.listen(3000);
+// app.listen(3000);
 
 
 

@@ -34,6 +34,10 @@ app.get("/:word/echo", (req, res, next) => {
 
     return res.json({ "echo": word });
 });
+app.get("/name", (req, res, next) => {
+
+    return res.json({ "name": `${req.query.firstname} ${req.query.lastname}` });
+});
 app.listen(3000);
 
 
